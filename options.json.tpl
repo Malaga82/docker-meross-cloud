@@ -15,6 +15,6 @@
     "password": "${MEROSS_PASSWORD}"
   },
   "devices": {
-    "refresh": 10000
+    "refresh": 30000
   }
 }
