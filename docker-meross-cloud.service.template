@@ -1,10 +1,10 @@
 [Unit]
-Description=Docker container
+Description=Docker container for Meross Cloud
 BindsTo=docker.service
 After=docker.service
 
 [Service]
-Environment=NAME=meross-carlosatta
+Environment=NAME=docker-meross-cloud
 Restart=on-failure
 RestartSec=10
 ExecStartPre=-/usr/bin/docker kill ${NAME}
@@ -17,8 +17,8 @@ ExecStart=/usr/bin/docker run --name ${NAME} \
     -e TOPIC_DISCOVERY_PREFIX="..." \
     -e MEROSS_USERNAME="..." \
     -e MEROSS_PASSWORD="..." \
-    --net host meross-carlosatta 
-ExecStop=/usr/bin/docker stop meross-carlosatta
+    --net host docker-meross-cloud 
+ExecStop=/usr/bin/docker stop docker-meross-cloud
 
 [Install]
 WantedBy=multi-user.target
